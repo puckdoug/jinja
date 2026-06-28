@@ -9,7 +9,7 @@ use std::path::PathBuf;
 #[derive(Parser, Debug)]
 #[command(name = "jinja")]
 #[command(about = "A command-line jinja2 template processor", long_about = None)]
-#[command(version = "0.1.0")]
+#[command(version = env!("CARGO_PKG_VERSION"))]
 struct Args {
     /// Template file(s) to process
     #[arg(required = true)]
@@ -28,7 +28,7 @@ struct Args {
     substitutions: Option<PathBuf>,
 
     /// Enable verbose output
-    #[arg(long)]
+    #[arg(long, short)]
     verbose: bool,
 
     /// Enable debug mode

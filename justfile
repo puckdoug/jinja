@@ -14,6 +14,10 @@ test:
 build:
   @cargo build
 
+# Bump the patch version (e.g. 0.1.0 -> 0.1.1)
+bugfix:
+  ./scripts/bugfix.sh
+
 # Generate a full release
 release:
   ./scripts/release.sh
