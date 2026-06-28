@@ -1,0 +1,22 @@
+class Jinja < Formula
+  desc "Command-line jinja2 template processor"
+  homepage "https://github.com/puckdoug/jinja"
+  url "https://github.com/puckdoug/jinja/archive/refs/tags/v{{ version }}.tar.gz"
+  sha256 "{{ sha256 }}"
+  license "MIT"
+  head "https://github.com/puckdoug/jinja.git", branch: "main"
+
+  depends_on "rust" => :build
+
+  def install
+    system "cargo", "install", *std_cargo_args
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/jinja --version")
+
+    (testpath/"hello.j2").write("Hello, {{ name }}!")
+    output = shell_output("#{bin}/jinja #{testpath}/hello.j2 2>&1")
+    assert_match "Hello,", output
+  end
+end

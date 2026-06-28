@@ -5,7 +5,37 @@ edition = "2024"
 
 [dependencies]
 clap = { version = "4.6.1", features = ["derive"] }
-minijinja = "2.20.0"
+minijinja = { version = "2.20.0", features = [
+  "adjacent_loop_items",
+  "builtins",
+  "custom_syntax",
+  "debug",
+  "deserialization",
+  "fuel",
+  "indexmap",
+  "internal_debug",
+  "internal_safe_search",
+  "json",
+  "key_interning",
+  "loader",
+  "loop_controls",
+  "macros",
+  "multi_template",
+  "percent-encoding",
+  "preserve_order",
+  "serde",
+  "serde_json",
+  "speedups",
+  "stacker",
+  "std_collections",
+  "unicase",
+  "unicode",
+  "unicode-ident",
+  "unstable_machinery",
+  "unstable_machinery_serde",
+  "urlencode",
+  "v_htmlescape",
+] }
 
 [dev-dependencies]
 assert_cmd = "2.2.2"
